@@ -1,0 +1,30 @@
+name: local_trade
+description: An offline-first community marketplace app.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  provider: ^6.0.5
+  sqflite: ^2.2.8+4
+  path: ^1.8.3
+  uuid: ^3.0.7
+  image_picker: ^0.8.7+5
+  connectivity_plus: ^4.0.1
+  path_provider: ^2.0.15
+  shared_preferences: ^2.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
