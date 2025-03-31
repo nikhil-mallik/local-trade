@@ -9,15 +9,27 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^1.0.2
+  get: ^4.6.5
+  qr_flutter: ^4.1.0
+  qr_code_scanner: ^1.0.1
+  socket_io_client: ^2.0.3+1
+  encrypt: ^5.0.3
+  crypto: ^3.0.3
+  file_picker: ^5.3.3
+  uuid: ^3.0.7
+  path_provider: ^2.1.1
+  permission_handler: ^10.4.3
   provider: ^6.0.5
   sqflite: ^2.2.8+4
   path: ^1.8.3
-  uuid: ^3.0.7
+  # uuid: ^3.0.7
   image_picker: ^0.8.7+5
   connectivity_plus: ^4.0.1
-  path_provider: ^2.0.15
+  # path_provider: ^2.0.15
   shared_preferences: ^2.1.1
+  wifi_iot: ^0.3.19+2
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

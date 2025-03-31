@@ -6,6 +6,7 @@ import 'package:local_trade/providers/connectivity_provider.dart';
 import 'package:local_trade/screens/login_screen.dart';
 import 'package:local_trade/screens/listing_detail_screen.dart';
 import 'package:local_trade/screens/add_listing_screen.dart';
+import 'package:local_trade/screens/transfer_screen.dart';
 import 'package:local_trade/widgets/listing_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -54,10 +55,13 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('LocalTrade'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.person),
-            onPressed: () {
-              // Show profile or logout dialog
+          // Single icon button that shows dropdown menu
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert),
+            onSelected: (value) {
+              // Handle selection based on which option was chosen
+              if (value == 'one') {
+                 // Show profile or logout dialog
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
@@ -86,7 +90,25 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               );
+              } else if (value == 'two') {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => TransferScreen(),
+                  ),
+                );
+              } 
             },
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+              const PopupMenuItem<String>(
+                value: 'one',
+                child: Text('Profile'),
+              ),
+              const PopupMenuItem<String>(
+                value: 'two',
+                child: Text('Transfer Data'),
+              ),
+              
+            ],
           ),
         ],
       ),
@@ -95,8 +117,9 @@ class _HomeScreenState extends State<HomeScreen> {
           // Connectivity status indicator
           if (!connectivityProvider.isOnline)
             Container(
+              width: MediaQuery.of(context).size.width,
               color: Colors.orange,
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 4),
               child: Row(
                 children: const [
                   Icon(Icons.wifi_off, color: Colors.white),
